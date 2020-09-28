@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+	</style>
+	</head>   
+	<head>
+		<meta charset="utf-8">
+		<title>Executor</title>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/dropdown.css">
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	</head>
+	<body>
+		<div class="cabecalho">
+			<a id="logo" href="index.html">
+				<img src="img/swf_player_icon.png" alt="Swf Player Games" width="auto" height="50">
+			</a>
+			<a href="index.html">
+				<button class="dropbtn">Home</button>
+			</a>
+			<div class="dropdown">
+			  	<button class="dropbtn">Other Games</button>
+			    <div class="dropdown-content">
+			    	<!--<a data-value="jogos/Knight Elite.swf">Link 1</a>
+			    	<a data-value="jogos/Hack Slash Crawl.swf">Link 2</a>
+				<a data-value="jogos/Hack Slash Crawl.swf">Hack Slash Crawl</a>
+				<a data-value="The Impossible Quiz.swf">The Impossible Quiz</a>
+				<a data-value="jogos/run2.swf">Run 2</a>
+				<a data-value="jogos/Portal_Flash.swf">Portal Flash</a>
+				<a data-value="jogos/Pacman.swf">Pacman</a>
+				<a data-value="jogos/Neon_Race.swf">Neon Racer</a>
+				<a data-value="jogos/Mineblocks__Minecraft_Flash_.swf">MineFlash</a>
+				<a data-value="jogos/MaD2.swf">Mutalte a doll (best)</a>
+				<a data-value="jogos/Knight Elite.swf">Knight Elite</a>
+				<a data-value="jogos/Hack Slash Crawl.swf">Hack Slash Crawl</a>
+				<a data-value="jogos/Gunblood Western Shootout.swf">Gunblood Western Shootout</a>
+				<a data-value="jogos/Flight.swf">Paper Flight</a>
+				<a data-value="jogos/Flash_Tetris.swf">Tetris</a>
+				<a data-value="jogos/fireboy-watergirl.swf">Fireboy-Watergirl</a>
+				<a data-value="jogos/doom.swf">Classic Doom</a>
+				<a data-value="jogos/Doodle_God.swf">Doodle God</a>
+				<a data-value="jogos/escapingtheprison.swf">Escaping The Prison</a>
+			    	<a data-value="jogos/Age of War.swf">Link 3</a>-->
+				    <button class="game" value="jogos/Knight Elite.swf">Knight Elite</button>
+				    <button class="game" value="jogos/Hack Slash Crawl.swf">Hack Slash Crawl</button>
+				    <button class="game" value="jogos/Age of War.swf">Age of War</button>
+				    <button class="game" value="jogos/Hack Slash Crawl.swf">Hack Slash Crawl</button>
+				    <button class="game" value="The Impossible Quiz.swf">The Impossible Quiz</button>
+				    <button class="game" value="jogos/run2.swf">Run 2</button>
+				    <button class="game" value="jogos/Portal_Flash.swf">Portal Flash</button>
+				    <button class="game" value="jogos/Pacman.swf">Pacman</button>
+				    <button class="game" value="jogos/Neon_Race.swf">Neon Racer</button>
+				    <button class="game" value="jogos/Mineblocks__Minecraft_Flash_.swf">MineFlash</button>
+				    <button class="game" value="jogos/MaD2.swf">Mutalte a doll (best)</button>
+				    <button class="game" value="jogos/Knight Elite.swf">Knight Elite</button>
+				    <button class="game" value="jogos/Hack Slash Crawl.swf">Hack Slash Crawl</button>
+				    <button class="game" value="jogos/Gunblood Western Shootout.swf">Gunblood Western Shootout</button>
+				    <button class="game" value="jogos/Flight.swf">Paper Flight</button>
+				    <button class="game" value="jogos/Flash_Tetris.swf">Tetris</button>
+				    <button class="game" value="jogos/fireboy-watergirl.swf">Fireboy-Watergirl</button>
+				    <button class="game" value="jogos/doom.swf">Classic Doom</button>
+				    <button class="game" value="jogos/Doodle_God.swf">Doodle God</button>
+				    <button class="game" value="jogos/escapingtheprison.swf">Escaping The Prison</button>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			$(".game").click(function(){
+				//localStorage.setItem("nomeJogo",$(this).data("value"));
+				localStorage.setItem("nomeJogo",this.value);
+				window.location.href = 'leitor.html';
+		    	//window.open("leitor.html", "Executando Jogo", "width=822,height=622");
+		    });
+		</script>
+
+		<embed id="interface" src="" quality="high" type="application/x-shockwave-flash" width="800" height="600" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+	    <script type="text/javascript">
+			//alert(localStorage.getItem("nomeJogo"));
+			var jogo = localStorage.getItem("nomeJogo");
+			var interface=document.getElementById("interface");
+			var clone=interface.cloneNode(true);
+			clone.setAttribute('src',jogo);
+			interface.parentNode.replaceChild(clone,interface);
+		</script>
+	</body>
